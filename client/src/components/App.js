@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import DeckMenu from './DeckMenu';
+import GameMenu from './GameMenu';
 import Signup from './../menu/Signup';
 
 function App() {
@@ -10,12 +11,16 @@ function App() {
 			return renderIndex();
 		case 'signup':
 			return renderSignup();
-		// case 'login':
-		// 	return renderLogin();
+		case 'login':
+			return renderLogin();
 		case 'home':
 			return renderHome();
+		case 'newGame':
+			return renderGameMenu();
 		case 'deckMenu':
 			return renderDeckMenu();
+		default:
+			return renderIndex();
 	};
 
 	function renderIndex() {
@@ -27,6 +32,14 @@ function App() {
 					<div className="box b2 container menu-btn2 height-50 margin-top-10 noselect cursor-3" onClick={() => setScreen('login')}><div className="box b1 center bold avant-garde" style={{color:'#fff'}}>Entrar</div></div>
 					<div className="box b2 container menu-btn2 height-50 margin-top-10 noselect cursor-3" onClick={() => setScreen('signup')}><div className="box b1 center bold avant-garde" style={{color:'#fff'}}>Criar conta</div></div>
 				</div>
+			</div>
+		);
+	};
+
+	function renderGameMenu() {
+		return (
+			<div className="container bg h-center cursor-1" style={styles.home}>
+				<GameMenu/>
 			</div>
 		);
 	};
@@ -56,7 +69,7 @@ function App() {
 				<div className="box b2 container ground center radius-30 padding-20 noselect h-center" style={{background: `rgb(9,9,9, 0.6)` }}>
 					<div className="box b1 em30 bold georgia center" style={{color:'#fff'}}>Siege</div>
 					<div className="box b1 em13 underline bold georgia center" style={{color:'#fff'}}>The War Card Game</div>
-					<div className="box b2-3 container menu-btn2 height-50 margin-top-10 noselect cursor-3" onClick={() => setScreen('deckMenu')}><div className="box b1 center bold" style={{color:'#fff'}}>NEW GAME</div></div>
+					<div className="box b2-3 container menu-btn2 height-50 margin-top-10 noselect cursor-3" onClick={() => setScreen('newGame')}><div className="box b1 center bold" style={{color:'#fff'}}>NEW GAME</div></div>
 					<div className="box b2-3 container menu-btn2 height-50 margin-top-10 noselect cursor-3" onClick={() => setScreen('deckMenu')}><div className="box b1 center bold" style={{color:'#fff'}}>DECK MENU</div></div>
 				</div>
 			</div>

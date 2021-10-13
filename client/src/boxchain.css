@@ -25,6 +25,29 @@ tr:hover { background-color: var(--light); }
 
 pre { tab-size: 2; }
 
+.loader {
+  opacity: 0.4;
+  border: 15px solid var(--light);
+  border-radius:48%;
+  border-top: 15px solid var(--strong);
+  border-bottom: 15px solid var(--strong);
+  width: 60px;
+  height: 60px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
 .noselect {
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -1284,7 +1307,7 @@ pre { tab-size: 2; }
 }
 
 .rec.rec-dot {
-  border-radius: 0;
+  border-radius: 1;
   background-color: transparent;
   border: 1px solid var(--strong);
   cursor: url(./image/cursor/cursor-3.png), auto;

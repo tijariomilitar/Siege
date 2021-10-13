@@ -25,26 +25,30 @@ const Deck = ({title, container, cards, box, switchCardTo}) => {
 
 	useEffect(() => {
 		if(category === 'cards'){ setRangeDescription("Todas as cartas"); } 
-		else { ranges.filter(range => { if(range.name === category){ setRangeDescription(range.description); } }); };
-	}, [category]);
+		else { ranges.find(range => range.name === category ? setRangeDescription(range.description) : false ); }
+	}, [category, ranges]);
 
 	switch(isPending){
 		case true:
 			return renderLoadScreen();
 		case false:
 			return renderDeckScreen();
+		default:
+			return renderLoadScreen();
 	};
 
 	function renderLoadScreen(){
 		return (
-			<div className="box b1 em15 avant-garde bold center margin-top-15" style={{color:'#fff'}}>Loading ...</div>
+			<div className="box b1 h-center">
+				<div className="box container loader center margin-top-50" style={{color:"#fff"}}></div>
+			</div>
 		);
 	};
 
 	function renderDeckScreen(){
 		return (
 			<div className="mobile-box b1 container">
-				<div className="box b1 center" style={{color:"#fff"}}>{category === 'cards' ? 'Todas as cartas' : rangeDescription }</div>
+				<div className="box b1 center em09 padding-5 bold noselect" style={{color:"#975"}}>{category === 'cards' ? 'Todas as cartas' : rangeDescription }</div>
 				<div className="mobile-box b1 container center padding-left-20 padding-right-20 margin-top-5">
 					<div className="mobile-box b5"><div className="size-35 bg opacity-out-07 center cursor-2" style={{ backgroundImage: "url("+cards_icon+")" }} onClick={() => setCategory('cards')}></div></div>
 					<div className="mobile-box b5"><div className="size-35 bg opacity-out-07 center cursor-2" style={{ backgroundImage: "url("+close_icon+")" }} onClick={() => setCategory('Close')}></div></div>
@@ -53,23 +57,12 @@ const Deck = ({title, container, cards, box, switchCardTo}) => {
 					<div className="mobile-box b5"><div className="size-35 bg opacity-out-07 center cursor-2" style={{ backgroundImage: "url("+agile_icon+")" }} onClick={() => setCategory('Agile')}></div></div>
 				</div>
 				<div className="mobile-box b1 container padding-15 scroll-y scroll-1 margin-top-5" style={{ maxHeight: container }}>
-					{ category === 'cards' ? (
-						cards.map((card) => (
-							<Card key={card.id} box={box} card={card} switchCardTo={switchCardTo} />
-						))
-					) : (
-						cards.map((card) => {
-							if(card.range === category){
-								return (<Card key={card.id} box={box} card={card} switchCardTo={switchCardTo} />);
-							};
-						})
-					)}
+					{ category === 'cards' ? (cards.map((card) => (<Card key={card.id} box={box} card={card} switchCardTo={switchCardTo} />))) : 
+					( cards.map((card) => card.range === category ? (<Card key={card.id} box={box} card={card} switchCardTo={switchCardTo} />) : false) )}
 				</div>
 			</div>
 		);	
 	};
-
-	
 };
 
 export default Deck;

@@ -39,9 +39,9 @@ let empires = [
 ];
 
 let leaders = [
-	{ id: 1, empire: "Império Romano", name: "Julio César", image: "card/rome/julio-cesar.png" },
-	{ id: 2, empire: "Império Romano", name: "Marcos rois", image: "card/rome/legacy.png" },
-	{ id: 3, empire: "Império Romano", name: "Alexandre O grande", image: "card/rome/centurion4.png" },
+	{ id: 10, empire: "Império Romano", name: "Julio César", image: "card/rome/julio-cesar.png" },
+	{ id: 26, empire: "Império Romano", name: "Marcos rois", image: "card/rome/legacy.png" },
+	{ id: 33, empire: "Império Romano", name: "Alexandre O grande", image: "card/rome/centurion4.png" },
 	// { id: 2, empire: 'Dinastias Asiáticas', name: "Sun Tzu", power: 15, skill_id: 0, hero: true, deck_id: 0, image: "https://media.nationalgeographic.org/assets/photos/262/373/c5636498-6c05-4547-a54a-f8522ba943b4.jpg" },
 	// { id: 3, empire: 'Reinos Nórdicos', name: "Carl von Clausewitz", power: 15, skill_id: 0, hero: true, deck_id: 0, image: "https://pbs.twimg.com/media/Emo6LbSWEAEPLFQ.jpg" },
 	// { id: 4, empire: 'Potências Intelectuais', name: "Alexandre, O grande", power: 15, skill_id: 0, hero: true, deck_id: 0, image: "https://www.suapesquisa.com/uploads/site/napoleao_bonaparte_pintura.jpg" },
